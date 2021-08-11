@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Miaou{% endblock %}
+
+{% block body %}
+
+<div class="d-flex justify-content-around">
+    <div class="row justify-content-around my-3">
+        <h1 class="my-3">{{category.name }}</h1>
+        {% for p in category.products %}
+            <div class="card mx-2" style="width: 18rem;">
+                <img src="/public/image/produit/{{ p.img }}" class="card-img-top" alt="{{ p.name }}" title="{{ p.name }}">
+                <div class="card-body">
+                    <h2><a href="{{ path('user_product',{url:p.url}) }}">{{ p.name }}</a></h2>
+                    <h4 class="card-text">{{ p.price |number_format(2, ',') }} €</h4>
+                    <a href="{{ path('user_product',{url:p.url}) }}" class="btn btn-primary">Voir le produit</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

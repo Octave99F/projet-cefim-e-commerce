@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Miaou{% endblock %}
+
+{% block body %}
+
+<div class="col-12">
+    <h1>Page users</h1>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Rechercher un user">
+        <table class="table table-striped" id="myTable">
+            <thead>
+                <th>E-mail</th>
+                <th>Lastname</th>
+                <th>Firstname</th>
+                <th>roles</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </thead>
+
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td> {{ user.email }} </td>
+                    <td> {{ user.lastname }} </td>
+                    <td> {{ user.firstname }} </td>
+                    <td> {{ user.roles[0] }} </td>
+                    <td>
+                        <a href="{{ path('admin_modify_user',{'id':user.id}) }}" class="btn btn-warning">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    </td>
+                    <td>
+                        ​<a href="{{ path('admin_delete_user',{'id':user.id}) }}" class="btn btn-danger">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script>
+            function myFunction() {
+            // Declare variables
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+                }
+            }
+            }
+            </script>
+    {% endblock %}

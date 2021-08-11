@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Miaou{% endblock %}
+
+{% block body %}
+
+<div class="container-lg bg-white p-4 my-3">
+    <h1 class="my-3">{{product.name }}</h1>
+    <div>
+        <div class="d-flex justify-content-around">
+            <img class="w-25" src="/public/image/produit/{{product.img }}" alt="{{product.name }}" title="{{product.name }}">
+            <div class="text-center">
+                <div class="fs-2 fw-bold">{{product.price |number_format(2, ',') }} €</div>
+                <button type="button" class="btn btn-warning btn-lg">Ajouter au panier</button>
+            </div>
+        </div>
+        <div class="pt-4">{{product.description }}</div>
+    </div>
+    <div class="text-end">
+        <p>Télécharger notre fiche produit<br>
+            <a href="/product/telecharger/{{product.url}}"> <i class="far fa-file-pdf"></i></a>
+        </p>
+    </div>
+</div>
+
+
+
+{% endblock %}

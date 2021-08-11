@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste des produits{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <h1 class="text-center">Ajouter un produit</h1>
+    <div class="">
+        <div class="row d-flex justify-content-center">
+            {{  form_start(formProduct) }}
+            <div class="col-8 mx-auto">
+                <div>
+                    {{  form_widget(formProduct) }}
+                </div>
+
+                <div class="p-5 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>Valider</button>
+                </div>
+                
+                <div>
+                    {{ form_end(formProduct) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#product_product_category').select2();
+</script>
+
+{% endblock %}

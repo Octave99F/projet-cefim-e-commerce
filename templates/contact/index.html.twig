@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="text-center">
+        <h1 class="text-center pt-3">Formulaire de contact</h1>
+        <p class="mt-3">Vous avez des questions ? N'hésitez pas à nous contacter directement !<br />
+	    Notre équipe reviendra vers vous au plus vite pour vous aider.
+        </p>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+        {{  form_start(formContact) }}
+        <div class="col-8 mx-auto">
+            <div>
+                {{  form_widget(formContact) }}
+            </div>
+
+            <div class="p-5 d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>Valider</button>
+            </div>
+            
+            <div>
+                {{ form_end(formContact) }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

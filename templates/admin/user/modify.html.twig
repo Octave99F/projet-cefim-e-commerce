@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste des users{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <h1 class="text-center">Modifier un user</h1>
+    <div class="">
+        <div class="row d-flex justify-content-center">
+            {{  form_start(formUser) }}
+            <div class="col-8 mx-auto">
+                <div>
+                    {{  form_widget(formUser) }}
+                </div>
+
+                <div class="p-5 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i>Valider</button>
+                </div>
+                
+                <div>
+                    {{ form_end(formUser) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#product_categories').select2();
+</script>
+{% endblock %}
