@@ -1,3 +1,5 @@
+Création d'un site E-commer ==> Miaou "Tout pour le bien-être de votre animal."
+
 Contraintes techniques du projet : 
 
 - Connexion avec une BDD
